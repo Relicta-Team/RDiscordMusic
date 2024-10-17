@@ -1,2 +1,2 @@
-# RDiscordMusic
-Music bot for Relicta Discord.
+# ReCaves
+Caves generator for A3 Relicta project
