@@ -53,32 +53,32 @@ namespace ReCaves
                 //Здесь конфигурируем
 
                 #region Свитч опций
-                if (args.Length > 0)                    // IndexOutOfRange 
+                if (args.Length > 0)
                 {
-                    switch (args[0])                    // Небезопасный код
+                    switch (args[0])
                     {
-                        case "startPos":
+                        case "startPos":    // Стартовая позиция для зоны генерации
                             if (float.TryParse(args[1], out float startX) && float.TryParse(args[2], out float startY))
                             {
                                 gConfig.generationZone.startPos.X = startX;
                                 gConfig.generationZone.startPos.Y = startY;
                             }
                             break;
-                        case "endPos":
+                        case "endPos":      // Конечная позиция для зоны генерации
                             if (float.TryParse(args[1], out float endX) && float.TryParse(args[2], out float endY))
                             {
                                 gConfig.generationZone.endPos.X = endX;
                                 gConfig.generationZone.endPos.Y = endY;
                             }
                             break;
-                        case "level":
+                        case "level":       // Сколько этажей будут генерироваться
                             if (uint.TryParse(args[1], out uint level))
                             {
                                 gConfig.Levels = level;
                             }
                             break;
 
-                        case "zones":
+                        case "zones":       // Добавление "Пустот" в список
                             bool validArgsCount = (args.Length - 1) % 4 == 0;
                             if (validArgsCount)
                             {
@@ -99,7 +99,7 @@ namespace ReCaves
                                 output.Append("ERR:Wrong arguments, zone wasn't added");
                             }
                             break;
-                        case "hardtrans":
+                        case "hardtrans":   // Добавление "Жёстких переходов" в список
                             bool validArgsCountHT = (args.Length - 1) % 3 == 0;
                             if (validArgsCountHT)
                             {
@@ -126,9 +126,6 @@ namespace ReCaves
                             break;
                     }
                 }
-
-
-                //output.Append("ERR:Option not found");
                 #endregion
             }
             else if (function == "generate")
