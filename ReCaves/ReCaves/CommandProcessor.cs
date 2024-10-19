@@ -92,11 +92,15 @@ namespace ReCaves
                                             radius = zoneRad
                                         });
                                     }
+                                    else
+                                    {
+                                        output.Append($"ERR: Wrond argument from index {val}, zones wasn't added");
+                                    }
                                 }
                             }
                             else
                             {
-                                output.Append("ERR:Wrong arguments, zone wasn't added");
+                                output.Append("ERR:Wrong size of array, zone wasn't added");
                             }
                             break;
                         case "hardtrans":   // Добавление "Жёстких переходов" в список
@@ -114,11 +118,15 @@ namespace ReCaves
                                             Z = zoneZ
                                         });
                                     }
+                                    else
+                                    {
+                                        output.Append($"ERR: Wrond argument from index {val}, transitions wasn't added");
+                                    }
                                 }
                             }
                             else
                             {
-                                output.Append("ERR:Wrong arguments, transitions wasn't added");
+                                output.Append("ERR:Wrong size of array, transitions wasn't added");
                             }
                             break;
                         case "exits":   // Добавление Выходов в список
@@ -136,11 +144,15 @@ namespace ReCaves
                                             Z = zoneZ
                                         });
                                     }
+                                    else
+                                    {
+                                        output.Append($"ERR: Wrond argument from index {val}, exits wasn't added");
+                                    }
                                 }
                             }
                             else
                             {
-                                output.Append("ERR:Wrong arguments, exits wasn't added");
+                                output.Append("ERR:Wrong size of array, exits wasn't added");
                             }
                             break;
                         default:
