@@ -15,7 +15,7 @@ namespace ReCaves
 
         public List<Zone> zonesOfInterest = new List<Zone>();           // Список Пустот
         public List<Point3D> hardTransitions = new List<Point3D>();     // Список Переходов
-
+        public List<Point3D> exits = new List<Point3D>();               // Список Выходов
         public GenerationZone generationZone;
 
         public GeneratorConfig(GenerationZone gz)   // Прокидываем обязательную зону для генерации

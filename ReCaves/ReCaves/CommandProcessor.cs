@@ -121,6 +121,28 @@ namespace ReCaves
                                 output.Append("ERR:Wrong arguments, transitions wasn't added");
                             }
                             break;
+                        case "exits":   // Добавление Выходов в список
+                            bool validArgsCountEx = (args.Length - 1) % 3 == 0;
+                            if (validArgsCountEx)
+                            {
+                                for (int val = 1; val < args.Length - 2; val = val + 3)
+                                {
+                                    if (float.TryParse(args[val], out float zoneX) && float.TryParse(args[val + 1], out float zoneY) && float.TryParse(args[val + 2], out float zoneZ))
+                                    {
+                                        gConfig.exits.Add(new Point3D
+                                        {
+                                            X = zoneX,
+                                            Y = zoneY,
+                                            Z = zoneZ
+                                        });
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                output.Append("ERR:Wrong arguments, exits wasn't added");
+                            }
+                            break;
                         default:
                             output.Append("ERR:Option not found");
                             break;
