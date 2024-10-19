@@ -168,6 +168,10 @@ namespace ReCaves
                 try
                 {
                     //Здесь реализуем генерацию
+                    if ((gConfig.generationZone.startPos.X == 0) && (gConfig.generationZone.startPos.Y == 0) && (gConfig.generationZone.endPos.X == 0) && (gConfig.generationZone.endPos.Y == 0))
+                    {
+                        output.Append("ERR:No data in startPos and endPos");
+                    }
                     output.Append("ERR:Not implemented");
 
                 }
