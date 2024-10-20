@@ -170,6 +170,10 @@ namespace ReCaves
                     {
                         output.Append("ERR:No data in startPos and endPos");
                     }
+                    Generator generator = new Generator(0.01, 0.35);
+                    generator.GenerateCave();
+                    generator.PrintMap();
+
                     output.Append("ERR:Not implemented");
 
                 }
