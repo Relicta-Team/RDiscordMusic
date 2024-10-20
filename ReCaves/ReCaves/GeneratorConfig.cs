@@ -9,6 +9,18 @@ namespace ReCaves
 {
     public class GeneratorConfig
     {
+        private static GeneratorConfig instance;
+        public static GeneratorConfig Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GeneratorConfig(new GenerationZone(new Point2D { X = 0, Y = 0 }, new Point2D { X = 0, Y = 0 }));
+                }
+                return instance;
+            }
+        }
 
         public uint Levels { get; set; } = 1;       // Кол-во этажей, по умолчанию 1
         public uint Transitions { get; set; } = 0;  // Кол-во переходов, 0 - временное решение
@@ -17,7 +29,6 @@ namespace ReCaves
         public List<Point3D> hardTransitions = new List<Point3D>();     // Список Переходов
         public List<Point3D> exits = new List<Point3D>();               // Список Выходов
         public GenerationZone generationZone;
-
         public GeneratorConfig(GenerationZone gz)   // Прокидываем обязательную зону для генерации
         {
             generationZone = gz;

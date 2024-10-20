@@ -14,14 +14,12 @@ namespace ReCaves
         private static StringBuilder partialBuffer = new StringBuilder();
         internal static bool debugPrinter = false;
 
-        public static GeneratorConfig gConfig = new GeneratorConfig(new GeneratorConfig
-            .GenerationZone(new Point2D { X = 0, Y = 0 }, new Point2D { X = 0, Y = 0 }));
-
         internal static void debugPrint(string data)
         {
             if (debugPrinter)
             {
                 Console.WriteLine("RECAVES_EXT_DEBUG:" + data);
+
             }
         }
 
@@ -60,21 +58,21 @@ namespace ReCaves
                         case "startPos":    // Стартовая позиция для зоны генерации
                             if (float.TryParse(args[1], out float startX) && float.TryParse(args[2], out float startY))
                             {
-                                gConfig.generationZone.startPos.X = startX;
-                                gConfig.generationZone.startPos.Y = startY;
+                                GeneratorConfig.Instance.generationZone.startPos.X = startX;
+                                GeneratorConfig.Instance.generationZone.startPos.Y = startY;
                             }
                             break;
                         case "endPos":      // Конечная позиция для зоны генерации
                             if (float.TryParse(args[1], out float endX) && float.TryParse(args[2], out float endY))
                             {
-                                gConfig.generationZone.endPos.X = endX;
-                                gConfig.generationZone.endPos.Y = endY;
+                                GeneratorConfig.Instance.generationZone.endPos.X = endX;
+                                GeneratorConfig.Instance.generationZone.endPos.Y = endY;
                             }
                             break;
                         case "level":       // Сколько этажей будут генерироваться
                             if (uint.TryParse(args[1], out uint level))
                             {
-                                gConfig.Levels = level;
+                                GeneratorConfig.Instance.Levels = level;
                             }
                             break;
 
@@ -86,7 +84,7 @@ namespace ReCaves
                                 {
                                     if (float.TryParse(args[val], out float zoneX) && float.TryParse(args[val + 1], out float zoneY) && float.TryParse(args[val + 2], out float zoneZ) && float.TryParse(args[val + 3], out float zoneRad))
                                     {
-                                        gConfig.zonesOfInterest.Add(new GeneratorConfig.Zone
+                                        GeneratorConfig.Instance.zonesOfInterest.Add(new GeneratorConfig.Zone
                                         {
                                             position = new Point3D { X = zoneX, Y = zoneY, Z = zoneZ },
                                             radius = zoneRad
@@ -111,7 +109,7 @@ namespace ReCaves
                                 {
                                     if (float.TryParse(args[val], out float zoneX) && float.TryParse(args[val + 1], out float zoneY) && float.TryParse(args[val + 2], out float zoneZ))
                                     {
-                                        gConfig.hardTransitions.Add(new Point3D
+                                        GeneratorConfig.Instance.hardTransitions.Add(new Point3D
                                         {
                                             X = zoneX,
                                             Y = zoneY,
@@ -137,7 +135,7 @@ namespace ReCaves
                                 {
                                     if (float.TryParse(args[val], out float zoneX) && float.TryParse(args[val + 1], out float zoneY) && float.TryParse(args[val + 2], out float zoneZ))
                                     {
-                                        gConfig.exits.Add(new Point3D
+                                        GeneratorConfig.Instance.exits.Add(new Point3D
                                         {
                                             X = zoneX,
                                             Y = zoneY,
@@ -167,8 +165,8 @@ namespace ReCaves
                 if (args.Length < 2) return;
                 try
                 {
-                    //Здесь реализуем генерацию
-                    if ((gConfig.generationZone.startPos.X == 0) && (gConfig.generationZone.startPos.Y == 0) && (gConfig.generationZone.endPos.X == 0) && (gConfig.generationZone.endPos.Y == 0))
+                    //Здесь реализуем генерацию                
+                    if ((GeneratorConfig.Instance.generationZone.startPos.X == 0) && (GeneratorConfig.Instance.generationZone.startPos.Y == 0) && (GeneratorConfig.Instance.generationZone.endPos.X == 0) && (GeneratorConfig.Instance.generationZone.endPos.Y == 0))
                     {
                         output.Append("ERR:No data in startPos and endPos");
                     }
