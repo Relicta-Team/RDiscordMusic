@@ -153,6 +153,16 @@ namespace ReCaves
                                 output.Append("ERR:Wrong size of array, exits wasn't added");
                             }
                             break;
+                        case "square":
+                            if (uint.TryParse(args[1], out uint sqrSize))
+                            {
+                                GeneratorConfig.Instance.SquareSize = sqrSize;
+                            }
+                            else
+                            {
+                                output.Append("ERR:Wrong argument, square size wasn't set");
+                            }
+                            break;
                         default:
                             output.Append("ERR:Option not found");
                             break;
