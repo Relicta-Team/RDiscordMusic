@@ -24,7 +24,7 @@ namespace ReCaves
 
         public uint Levels { get; set; } = 1;       // Кол-во этажей, по умолчанию 1
         public uint Transitions { get; set; } = 0;  // Кол-во переходов, 0 - временное решение
-        public uint SquareSize { get; set; } = 10;  // По умолчанию 10
+        public uint ChunkSize { get; set; } = 10;  // По умолчанию 10
 
         public List<Zone> zonesOfInterest = new List<Zone>();           // Список Пустот
         public List<Point3D> hardTransitions = new List<Point3D>();     // Список Переходов

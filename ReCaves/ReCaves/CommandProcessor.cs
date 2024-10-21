@@ -153,10 +153,10 @@ namespace ReCaves
                                 output.Append("ERR:Wrong size of array, exits wasn't added");
                             }
                             break;
-                        case "square":
+                        case "chunk":
                             if (uint.TryParse(args[1], out uint sqrSize))
                             {
-                                GeneratorConfig.Instance.SquareSize = sqrSize;
+                                GeneratorConfig.Instance.ChunkSize = sqrSize;
                             }
                             else
                             {
